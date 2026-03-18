@@ -1,0 +1,54 @@
+{
+ "app": "ierp_quality_module",
+ "creation": "2026-03-12 16:48:19.791006",
+ "docstatus": 0,
+ "doctype": "Workspace Sidebar",
+ "for_user": "",
+ "header_icon": "quality",
+ "idx": 0,
+ "items": [
+  {
+   "child": 0,
+   "collapsible": 1,
+   "icon": "quality-3",
+   "indent": 0,
+   "keep_closed": 0,
+   "label": "Quality Inspections",
+   "link_to": "Quality Inspection",
+   "link_type": "DocType",
+   "show_arrow": 0,
+   "type": "Link"
+  },
+  {
+   "child": 0,
+   "collapsible": 1,
+   "icon": "square-equal",
+   "indent": 0,
+   "keep_closed": 0,
+   "label": "Quality Inspection Parameters",
+   "link_to": "Quality Inspection Parameter",
+   "link_type": "DocType",
+   "show_arrow": 0,
+   "type": "Link"
+  },
+  {
+   "child": 0,
+   "collapsible": 1,
+   "icon": "notebook-tabs",
+   "indent": 0,
+   "keep_closed": 0,
+   "label": "Quality Inspection Templates",
+   "link_to": "Quality Inspection Template",
+   "link_type": "DocType",
+   "show_arrow": 0,
+   "type": "Link"
+  }
+ ],
+ "modified": "2026-03-12 16:48:39.099244",
+ "modified_by": "Administrator",
+ "module": "Stock",
+ "name": "Quality Inspection",
+ "owner": "Administrator",
+ "standard": 1,
+ "title": "Quality Inspection"
+}

@@ -1,0 +1,22 @@
+{
+ "app": "ierp_quality_module",
+ "creation": "2026-03-12 16:49:59.374888",
+ "docstatus": 0,
+ "doctype": "Desktop Icon",
+ "hidden": 0,
+ "icon_image": "/files/QI module.jpg",
+ "icon_type": "Link",
+ "idx": 11,
+ "label": "Quality Inspection",
+ "link_to": "Quality Inspection",
+ "link_type": "Workspace Sidebar",
+ "modified": "2026-03-12 16:53:30.610358",
+ "modified_by": "Administrator",
+ "name": "Quality Inspection",
+ "owner": "Administrator",
+ "parent_icon": "Framework",
+ "restrict_removal": 0,
+ "roles": [],
+ "sidebar": "Quality Inspection",
+ "standard": 1
+}

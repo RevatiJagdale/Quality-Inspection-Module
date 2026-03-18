@@ -1,0 +1,24 @@
+[
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "Job Card",
+  "enabled": 0,
+  "modified": "2026-03-12 14:58:08.473900",
+  "module": "Ierp Quality Module",
+  "name": "Auto fetch template on Job Card",
+  "script": "frappe.ui.form.on('Job Card', {\n    workstation: function(frm) {\n        if (!frm.doc.workstation || !frm.doc.item_code) return;\n\n        frappe.call({\n            method: \"frappe.client.get_list\",\n            args: {\n                doctype: \"Workstation Inspection Mapping\",\n                filters: {\n                    item: frm.doc.item_code,\n                    workstation: frm.doc.workstation\n                },\n                fields: [\"inspection_template\"]\n            },\n            callback: function(r) {\n                if (r.message && r.message.length > 0) {\n                    frm.set_value(\"custom_quality_template\", r.message[0].inspection_template);\n                } else {\n                    frappe.msgprint(\"No Inspection Template mapped for this Item + Workstation\");\n                }\n            }\n        });\n    }\n});",
+  "view": "Form"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "Quality Inspection",
+  "enabled": 1,
+  "modified": "2026-03-12 15:11:42.510241",
+  "module": "Ierp Quality Module",
+  "name": "Pass on Parameter datatype to QI",
+  "script": "frappe.ui.form.on('Quality Inspection', {\n    quality_inspection_template: function(frm) {\n        // Give the system 1 second to finish the standard row generation\n        setTimeout(() => {\n            frm.doc.readings.forEach(row => {\n                // Manually fetch the datatype from the Master\n                frappe.db.get_value('Quality Inspection Parameter', row.specification, 'custom_parameter_data_type', (r) => {\n                    if (r && r.custom_parameter_data_type) {\n                        // Push the value into the row\n                        frappe.model.set_value(row.doctype, row.name, 'custom_parameter_data_type', r.custom_parameter_data_type);\n                    }\n                });\n            });\n            frm.refresh_field('readings');\n        }, 1000);\n    }\n});",
+  "view": "Form"
+ }
+]
